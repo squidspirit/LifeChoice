@@ -159,9 +159,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120.000015, y: -86.999954}
+  m_AnchoredPosition: {x: -323, y: -86.999954}
   m_SizeDelta: {x: 406, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &34501649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +203,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 605986189}
+          m_TargetAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
+          m_MethodName: ActivateInputField
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
         - m_Target: {fileID: 605986189}
           m_TargetAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
           m_MethodName: ActivateInputField
@@ -293,9 +309,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.99998, y: -86.99994}
+  m_AnchoredPosition: {x: -322.99997, y: -86.99994}
   m_SizeDelta: {x: 406, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &116866875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,11 +416,23 @@ MonoBehaviour:
           m_MethodName: SetNewCursor
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 183833707}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_ObjectArgument: {fileID: 183833710}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 323674728}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Enter
             m_BoolArgument: 1
           m_CallState: 2
 --- !u!1 &183833707
@@ -443,7 +471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -418.9324, y: -86.999954}
+  m_AnchoredPosition: {x: -403, y: -86.999954}
   m_SizeDelta: {x: 105.907, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &183833709
@@ -541,13 +569,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1104749599}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: -227}
+  m_AnchoredPosition: {x: -323, y: -227}
   m_SizeDelta: {x: 406, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &273131033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,13 +624,25 @@ MonoBehaviour:
         - m_Target: {fileID: 1216615333}
           m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
           m_MethodName: StartGame
-          m_Mode: 1
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1302127167}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 323674728}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: Play
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Start
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &273131034
@@ -647,6 +687,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273131031}
   m_CullTransparentMesh: 1
+--- !u!1 &323674727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 323674729}
+  - component: {fileID: 323674728}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &323674728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323674727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bc2bdba8335a947ac0b12941c28690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: None
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Select
+    clip: {fileID: 8300000, guid: fe3f8d84bf121604581c5a8f32c73afa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Enter
+    clip: {fileID: 8300000, guid: dee20faf45512d4478decb459aa91ac6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Start
+    clip: {fileID: 8300000, guid: 57dd174ad455fc549b0248588408419d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &323674729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323674727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 266.3097, y: 146.63797, z: -1.7979848}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &378348879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1413557111}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1014935283
@@ -1095,8 +1204,8 @@ RectTransform:
   - {fileID: 183833708}
   - {fileID: 34501648}
   - {fileID: 1302127165}
-  - {fileID: 1667804109}
   - {fileID: 273131032}
+  - {fileID: 1667804109}
   - {fileID: 605986188}
   m_Father: {fileID: 1235777000}
   m_RootOrder: 2
@@ -1269,9 +1378,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1216615331}
   - component: {fileID: 1216615333}
-  - component: {fileID: 1216615332}
   m_Layer: 0
-  m_Name: ObjectManager
+  m_Name: MenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1292,29 +1400,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1216615332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216615329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72bc2bdba8335a947ac0b12941c28690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: None
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    source: {fileID: 0}
-  - name: Select
-    clip: {fileID: 8300000, guid: fe3f8d84bf121604581c5a8f32c73afa, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
 --- !u!114 &1216615333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,8 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d506156eaa3b5446bdbd440f23eff10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorBlinkTimeSpeed: 1000
-  cursorText: {fileID: 1413557111}
+  cursorText: {fileID: 1413557113}
 --- !u!1 &1235776996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -418.9324, y: -86.999954}
+  m_AnchoredPosition: {x: -403, y: -86.999954}
   m_SizeDelta: {x: 105.907, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1413557113
@@ -1726,13 +1810,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1104749599}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286.00006, y: -226.99994}
+  m_AnchoredPosition: {x: 83.00006, y: -226.99994}
   m_SizeDelta: {x: 406, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1667804110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1807,11 +1891,23 @@ MonoBehaviour:
           m_MethodName: SetNewCursor
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1413557111}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_ObjectArgument: {fileID: 1413557113}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 323674728}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Enter
             m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &1667804111
@@ -1892,9 +1988,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.99998, y: -226.99998}
+  m_AnchoredPosition: {x: -322.99997, y: -226.99998}
   m_SizeDelta: {x: 406, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2015429197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1980,6 +2076,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 323674728}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Enter
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &2104406950

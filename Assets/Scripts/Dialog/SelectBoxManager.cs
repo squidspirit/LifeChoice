@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour {
+public class SelectBoxManager : MonoBehaviour {
 
+    public Text[] choiceTexts;
     public Text cursorText;
 
     private int cursorBlinkTimeSpeed = VariableManager.cursorBlinkTimeSpeed;
     private float timer = 0;
 
     void Start() {
-
+        
     }
 
     void Update() {
@@ -34,33 +34,19 @@ public class MenuManager : MonoBehaviour {
         FindObjectOfType<SoundManager>().Play("Select");
         Vector3 oriPos = cursorText.transform.position;
         cursorText.transform.position = new Vector3(
-            sender.transform.position.x - 80f * Screen.width / 1600f,
+            sender.transform.position.x - 60f * Screen.width / 1600f,
             sender.transform.position.y, oriPos.z
         );
     }
 
-    public void SetNewCursor(Text target) {
+    public void SetChoice(List<string> choices) {
 
-        cursorText = target;
-    }
-
-    public void StartGame(Text name) {
-
-        FindObjectOfType<SoundManager>().Play("Enter");
-        if (name.text.Length == 0)
-            name.text = "µL¦W¤ó";
-        VariableManager.playerName = name.text;
-        StartCoroutine(WaitAndSwitchScene());
-    }
-
-    public void QuitGame() {
-
-        Application.Quit();
-    }
-
-    private IEnumerator WaitAndSwitchScene() {
-
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(1);
+        foreach (Text choiceText in choiceTexts) {
+            choiceText.gameObject.SetActive(false);
+        }
+        for (int i = 0; i < choices.Count; i ++) {
+            choiceTexts[i].text = choices[i];
+            choiceTexts[i].gameObject.SetActive(true);
+        }
     }
 }
