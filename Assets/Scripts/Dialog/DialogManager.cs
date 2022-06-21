@@ -8,6 +8,7 @@ public class DialogManager : MonoBehaviour {
 
     public Text nameText;
     public Text contentText;
+    public Text gameOverText;
     public GameObject selectBox;
 
     private int textTimeSpeed = VariableManager.textTimeSpeed;
@@ -22,21 +23,25 @@ public class DialogManager : MonoBehaviour {
         None,
         DialogName,
         DialogContent,
-        Select
+        Select,
+        End
     }
 
-    void Awake() {
+    public void Awake() {
 
+        string nextStory = "";
+        bool ignoreNext = false;
         InputType dialogType = InputType.None;
         TextAsset txt = Resources.Load(VariableManager.currentStory) as TextAsset;
-        foreach (string line in txt.text.Split("\r\n")) {
+        foreach (string line in (txt.text + "\r\n").Split("\r\n")) {
             switch (dialogType) {
                 case InputType.None:
-                    foreach (char ch in line)
-                    if (line == "[dialog]")
+                    if (line.StartsWith("[dialog]"))
                         dialogType = InputType.DialogName;
-                    else if (line == "[select]")
+                    else if (line.StartsWith("[select]"))
                         dialogType = InputType.Select;
+                    else if (line.StartsWith("[end]"))
+                        dialogType = InputType.End;
                     break;
                 case InputType.DialogName:
                     dialogs.Add(new Dialog());
@@ -54,7 +59,21 @@ public class DialogManager : MonoBehaviour {
                 case InputType.Select:
                     if (line.Length == 0)
                         dialogType = InputType.None;
-                    else dialogs.Last().choice.Add(line);
+                    else {
+                        if (line.StartsWith("[ignore]"))
+                            ignoreNext = true;
+                        else if (line.StartsWith("[:")) {
+                            ignoreNext = false;
+                            for (int i = 2; i < line.Length; i++) {
+                                if (line[i] == ']') break;
+                                else nextStory += line[i];
+                            }
+                        }
+                        else dialogs.Last().choices.Add(new Choice(line, nextStory, ignoreNext));
+                    }
+                    break;
+                case InputType.End:
+                    dialogs.Last().end = true;
                     break;
             }
         }
@@ -80,16 +99,22 @@ public class DialogManager : MonoBehaviour {
                 contentText.text += dialogQueue.Dequeue();
                 if (dialogQueue.Count == 0) {
                     FindObjectOfType<SoundManager>().Stop("Typing");
-                    if (dialog.choice.Count > 0) {
+                    if (dialog.choices.Count > 0) {
                         FindObjectOfType<SoundManager>().Play("ShowSelect");
-                        selectBox.GetComponent<SelectBoxManager>().SetChoice(dialog.choice);
+                        selectBox.GetComponent<SelectBoxManager>().SetChoice(dialog.choices);
                         selectBox.SetActive(true);
                         FindObjectOfType<NavigationAnimator>().animationType =
                             NavigationAnimator.AnimationType.Seleting;
                     }
+                    else if (dialog.end) {
+                        FindObjectOfType<SoundManager>().Play("GameOver");
+                        gameOverText.gameObject.SetActive(true);
+                        FindObjectOfType<NavigationAnimator>().animationType =
+                            NavigationAnimator.AnimationType.EndGame;
+                    }
                     else {
                         FindObjectOfType<NavigationAnimator>().animationType =
-                            NavigationAnimator.AnimationType.End;
+                            NavigationAnimator.AnimationType.EndText;
                     }
                 }
             }
@@ -115,7 +140,7 @@ public class DialogManager : MonoBehaviour {
 
     private bool Next() {
 
-        dialogIndex++;
+        dialogIndex ++;
         return dialogIndex < dialogs.Count;
     }
 

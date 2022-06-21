@@ -10,7 +10,8 @@ public class NavigationAnimator : MonoBehaviour {
         None,
         Typing,
         Seleting,
-        End
+        EndText,
+        EndGame
     }
 
     public Text navigationText;
@@ -31,11 +32,14 @@ public class NavigationAnimator : MonoBehaviour {
                     timer = 0;
                     navigationText.text = "...";
                 }
-                else if ((int)(timer * 1000) >= animationTime / 3 * 2) {
+                else if ((int)(timer * 1000) >= animationTime / 4 * 3) {
                     navigationText.text = "..";
                 }
-                else if ((int)(timer * 1000) >= animationTime / 3) {
+                else if ((int)(timer * 1000) >= animationTime / 2) {
                     navigationText.text = ".";
+                }
+                else if ((int)(timer * 1000) >= animationTime / 4) {
+                    navigationText.text = "";
                 }
                 break;
             case AnimationType.Seleting:
@@ -44,15 +48,21 @@ public class NavigationAnimator : MonoBehaviour {
                     timer = 0;
                     navigationText.text = "???";
                 }
-                else if ((int)(timer * 1000) >= animationTime / 3 * 2) {
+                else if ((int)(timer * 1000) >= animationTime / 4 * 3) {
                     navigationText.text = "??";
                 }
-                else if ((int)(timer * 1000) >= animationTime / 3) {
+                else if ((int)(timer * 1000) >= animationTime / 2) {
                     navigationText.text = "?";
                 }
+                else if ((int)(timer * 1000) >= animationTime / 4) {
+                    navigationText.text = "";
+                }
                 break;
-            case AnimationType.End:
+            case AnimationType.EndText:
                 navigationText.text = "¡÷";
+                break;
+            case AnimationType.EndGame:
+                navigationText.text = "X";
                 break;
         }
     }
